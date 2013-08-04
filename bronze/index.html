@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="description" content="This is a web app for drink saving" />
+		<meta name="keywords" content="Zac Croasmun" />
+		<meta name="robots" content= "index, follow" />
+		<meta name="viewport" content="user-scalable=yes, width=device-width" />
+		<meta name="viewport" content="target-densitydpi=device-dpi" />
+		
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+		
+		<script src="js/modernizr.custom.60803.js"></script>
+		<title>Maintenance Schedule</title>
+	</head>
+
+	<body>
+		<div data-role="page" id="home">
+			<div data-role="header" data-position="fixed" data-theme="e">
+				<h1>Maintenance</h1><img id="brand"  src="images/branding.png" /> 
+				
+			</div>
+			
+			<div data-role="content">
+				<ul data-role="listview" data-filter="true">
+					<li data-role="list-divider" data-theme="b">
+						<h4>Browse</h4>
+					</li>
+				</ul>
+				
+				</div>
+				<div data-role="button" data-icon="star" data-iconpos="right" data-theme="a">
+					<a href="#newMaint">New Maintenance</a>
+				</div>
+			
+				<div data-role="button" data-icon="bars" data-iconpos="right" data-theme="a">
+					<a href="#schedule">scheduled maintenance</a>
+				</div>
+				
+				<ul data-role="listview">
+					<li data-role="list-divider" data-theme="b">
+						<p>Company Info</p>
+					</li>
+				</ul>
+				
+				<div data-role="button" data-icon="info" data-iconpos="right" data-theme="a">
+					<a href="#about ">About our Company</a>
+				</div>
+				
+				<div data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="a">
+					<a href="#bronze">Bronze APP</a>
+				</div>
+				
+				
+				<div data-role="footer" data-position="fixed">
+					<div data-role="navbar">
+						<ul>
+							<li><a href="#newMaint" data-icon="star" data-theme="e">New Maint</a></li>
+							<li><a href="#schedule" data-icon="bars" data-theme="e">schedule</a></li>
+							<li><a href="#about" data-icon="info" data-theme="e">About</a></li>
+							<li><a href="#home" data-icon="home" class="ui-btn-active">Home</a></li>
+							
+						</ul>
+						
+					</div>
+					
+				</div>
+				
+		</div>
+		<div data-role="page" id="newMaint" data-add-back-btn="true">
+			<div data-role="header" data-position="fixed">
+				<h1>New Maintenance</h1><img id="brand"  src="images/branding.png" />
+			</div>
+			<div data-role="content">
+				<form action="" method="post" id="newMaintForm">
+					<div data-role="fieldcontain">
+						<label for="maintType">Type of maintenance:</label>
+						<input type="text" name="maintType" id="maintType"  class="required"/>
+					</div>
+					
+					<div data-role="fieldcontain">
+						<label for="maintLocation">location of maintenance:</label>
+						<textarea id="mLocate"></textarea>
+					</div>
+					
+					<div data-role="fieldcontain">
+						<label for="timeNeeded">Approx. maintenance time: hours</label>
+						<input type="range" name="timeNeeded" id="timeNeeded" value="0" min="0" max="8" />
+					</div>
+					
+					<div data-role="fieldcontain">
+						<fieldset data-role="controlgroup">
+							<legend>Reguler Maintenance:</legend>
+							<input type="radio" value="Yes" name="regMaint" id="regMaint1" />
+							<label for="regMaint1">Yes</label>
+							<input type="radio" value="No" name="regMaint" id="regMaint2" />
+							<label for="regMaint2">No</label>
+						</fieldset>
+					</div>
+					
+					<div data-role="fieldcontain">
+						<fieldset data-role="controlgroup">
+							<legend>Reguler Maintenance Weekday:</legend>
+							<input type="checkbox" value="Monday" name="weekday" id="Monday" />
+							<label for="Monday">Monday</label>
+							<input type="checkbox" value="Tuesday" name="weekday" id="Tuesday" />
+							<label for="Tuesday">Tuesday</label>
+							<input type="checkbox" value="Wednesday" name="weekday" id="Wednesday" />
+							<label for="Wednesday">Wednesday</label>
+							<input type="checkbox" value="Thursday" name="weekday" id="Thursday" />
+							<label for="Thursday">Thursday</label>
+							<input type="checkbox" value="Friday" name="weekday" id="Friday" />
+							<label for="Friday">Friday</label>
+							<input type="checkbox" value="Saturday" name="weekday" id="Saturday" />
+							<label for="Saturday">Saturday</label>
+							<input type="checkbox" value="Sunday" name="weekday" id="Sunday" />
+							<label for="Sunday">Sunday</label>
+						</fieldset>
+					</div>
+					
+					<div data-role="fieldcontain">
+						<label for="toolsNeeded">Tools Needed:</label>
+						<textarea id="tools" class="required"></textarea>
+					</div>
+					
+					<div data-role="fieldcontain">
+						<label for="specialEquip">Special Equipment:</label>
+						<textarea id="specEquip" class="required"></textarea>
+					</div>
+					
+					<div data-role="fieldcontain">
+						<input type="submit" value="schedule" />
+					</div>
+					
+					<div data-role="fieldcontain">
+						<input type="reset" value="Reset" />
+					</div>
+					
+					<a href="#recordErrors" id="MaintErrorLink" data-rel="dialog">open error</a>
+					
+				</form>
+			</div>
+			
+			
+			<div data-role="footer" data-position="fixed">
+				<div data-role="navbar">
+					<ul>
+							<li><a href="#newMaint" data-icon="star" data-theme="e" class="ui-btn-active">New Maint</a></li>
+							<li><a href="#schedule" data-icon="bars" data-theme="e">schedule</a></li>
+							<li><a href="#about" data-icon="info" data-theme="e">About</a></li>
+							<li><a href="#home" data-icon="home"data-theme="e" >Home</a></li>
+
+							
+					</ul>
+						
+				</div>
+					
+			</div>
+			
+		</div>
+		
+		<div data-role="dialog" id="recordErrors">
+				
+				<div data-role="header" data-position="fixed">
+					<h1>Missing Data</h1><img id="brand"  src="images/branding.png" />
+				</div>
+				<div data-role="content">
+					<ul>
+						<li>test.</li>
+					</ul>
+					
+				</div>
+			</div>
+		
+		<div data-role="page" id="about" data-add-back-btn="true">
+			<div data-role="header" data-position="fixed">
+				<h1>maintenance schedule</h1><img id="brand"  src="images/branding.png" />
+			</div>
+			
+			<div data-role="content">
+				<p>This is our company about page more info to come</p>
+			</div>
+			
+			<div data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="a">
+					<a href="#newsFeed">Company News Feed</a>
+				</div>
+			
+			<div data-role="footer" data-position="fixed">
+					<div data-role="navbar">
+						<ul>
+							<li><a href="#newMaint" data-icon="star" data-theme="e">New Maint</a></li>
+							<li><a href="#schedule" data-icon="bars" data-theme="e">schedule</a></li>
+							<li><a href="#about" data-icon="info" data-theme="e" class="ui-btn-active">About</a></li>
+							<li><a href="#home" data-icon="home"data-theme="e" >Home</a></li>
+
+							
+						</ul>
+						
+					</div>
+					
+				</div>
+		</div>
+		<div data-role="page" id="bronze" data-add-back-btn="true">
+			<div data-role="header" data-position="fixed">
+				<h1>maintenance schedule</h1><img id="brand"  src="images/branding.png" />
+			</div>
+			
+			<div data-role="content">
+				<p>Here is a link to our bronze app.</p>
+				<div data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="e">
+					<a href="http://htmlpreview.github.io/?https://github.com/G41224/MIU_WEEK2/blob/master/bronze/index.html">Bronze APP</a>
+				</div>
+			</div>
+			
+			<div data-role="footer" data-position="fixed">
+					<div data-role="navbar">
+						<ul>
+							<li><a href="#newMaint" data-icon="star" data-theme="e">New Maint</a></li>
+							<li><a href="#schedule" data-icon="bars" data-theme="e">schedule</a></li>
+							<li><a href="#about" data-icon="info" data-theme="e">About</a></li>
+							<li><a href="#home" data-icon="home"data-theme="e" >Home</a></li>
+
+							
+						</ul>
+						
+					</div>
+					
+				</div>
+		</div>
+		
+		<div data-role="page" id="schedule" data-add-back-btn="true">
+			<div data-role="header" data-position="fixed">
+				<h1>maintenance schedule</h1><img id="brand"  src="images/branding.png" />
+			</div>
+			
+			<div data-role="content">
+				
+			
+			</div>
+			
+			<div data-role="footer" data-position="fixed">
+					<div data-role="navbar">
+						<ul>
+							<li><a href="#newMaint" data-icon="star" data-theme="e">New Maint</a></li>
+							<li><a href="#schedule" data-icon="bars" data-theme="e" class="ui-btn-active">schedule</a></li>
+							<li><a href="#about" data-icon="info" data-theme="e">About</a></li>
+							<li><a href="#home" data-icon="home"data-theme="e" >Home</a></li>
+
+							
+						</ul>
+						
+					</div>
+					
+				</div>
+		</div>
+		
+		
+		
+		
+		<div data-role="page" id="newsFeed" data-add-back-btn="true">
+			<div data-role="header" data-position="fixed">
+				<h1>maintenance schedule</h1><img id="brand"  src="images/branding.png" />
+			</div>
+			
+			<div data-role="content">
+				<h2>Company News Feed.</h2>
+				
+			</div>
+			
+			<div data-role="footer" data-position="fixed">
+					<div data-role="navbar">
+						<ul>
+							<li><a href="#newMaint" data-icon="star" data-theme="e">New Maint</a></li>
+							<li><a href="#schedule" data-icon="bars" data-theme="e">schedule</a></li>
+							<li><a href="#about" data-icon="info" data-theme="e" class="ui-btn-active">About</a></li>
+							<li><a href="#home" data-icon="home"data-theme="e" >Home</a></li>
+
+							
+						</ul>
+						
+					</div>
+					
+				</div>
+		</div>
+		
+		
+		
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+	<script type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="js/sample-main 2.js"></script>
+
+	</body>
+</html>
